@@ -2,6 +2,7 @@
 title: OpenSSH on Windows 7/10
 date: 2020-04-27 00:00:00
 tags:
+- sysadmin
 ---
 
 雖然新版 Windows 10 已經有預裝 OpenSSH Client 了，也可以自行啟用 OpenSSH Server，不過版本都似乎停留在 7.7

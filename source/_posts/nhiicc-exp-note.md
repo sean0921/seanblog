@@ -1,7 +1,11 @@
 ---
 title: 口罩預購與健保卡讀卡機程式使用心得
 date: 2020-05-05 00:00:00
-tags: firmware, archlinux, gov, sysadmin, packaging
+tags:
+- firmware
+- archlinux
+- sysadmin
+- packaging
 ---
 
 0. 很久以前就有耳聞電腦健保卡/自然人憑證讀卡機的安裝元件有一些詭異的操作機制了，所以這次藉由預購口罩的機會實地體驗 ![](https://i.imgur.com/k5XQyYM.jpg)
