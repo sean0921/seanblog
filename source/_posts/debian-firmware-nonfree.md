@@ -9,11 +9,18 @@ tags:
 - sysadmin
 ---
 
+## 介紹
+
+在使用 Debian GNU/Linux 這個發行版時，我們想要在兼顧 Debian Stable 穩定的特性下使用版本較新的套件，這時候 Backports 就是一個被官方社群支援的選項。然而有時我們還是會遇到裝了新版 backport kernel, non-free 韌體內容跟不上或找不到的小問題 (不影響系統運作)。除了 Bug Report 回報給相關社群之外，在等待的期間還可以做哪些處置來兼顧新版套件安裝與後續套件管理(apt)支援? 我們可以利用 Debian Salsa 的 GitLab 資源來協助我們參閱或修改測試中或已經釋出的打包腳本，讓 Debian 及其衍生發行版的套件資源變得更加健全。
+
+<!--more-->
+
+## 筆記
+
 每次在 Debian Stable 想裝 [backports](https://backports.debian.org) 的 [kernel](https://kernel.org) (通常版本是次新釋出的穩定分支) 遇到了缺某些韌體的訊息
 
 雖然看不出來系統會因此發生什麼問題，還是記一下更新的方式
 
-<!--more-->
 
 首先要用 `apt` 先安裝 `linux-support-<kernel version>` 套件
 
