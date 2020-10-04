@@ -102,6 +102,18 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: hexo-theme-next
 
+# Atom Feeds
+## Try atom feeds by suggestions of issue #1
+feed:
+  type:
+    - atom
+    - rss2
+  path:
+    - atom.xml
+    - rss2.xml
+  limit: 5
+  content: true
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
