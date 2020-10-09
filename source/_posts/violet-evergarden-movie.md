@@ -1,10 +1,11 @@
 ---
 title: Violet Evergarden 劇場版心得
 tags:
-- oil
-- anime
-- society
+  - oil
+  - anime
+date: 2020-10-09 23:40:58
 ---
+
 
 你累了嗎? 先聽首歌，好嗎: https://www.youtube.com/watch?v=OrmO23ALlEU
 
