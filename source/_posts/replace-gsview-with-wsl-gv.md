@@ -1,6 +1,8 @@
 ---
 title: 使用 WSL/WSL2 的 gv 取代過時的 gsview
-tags: 'freesoftware, linux'
+tags:
+- freesoftware
+- linux
 date: 2020-12-04 12:24:08
 ---
 
