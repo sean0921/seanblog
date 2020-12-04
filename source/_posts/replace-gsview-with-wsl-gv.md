@@ -17,7 +17,7 @@ date: 2020-12-04 12:24:08
 
 ## 0. 安裝 WSL, VcXsrv
 
-VcXsrv 安裝完啟動後記得選勾選 `Disable access control`，該程式相關防火牆設定都先打開，若機器長期暴露在公共網路 (有外網ip)，可自行研究 Xorg 的 xauth 怎麼設定，這邊先不細講。
+[VcXsrv](https://sourceforge.net/projects/vcxsrv/) 是個有持續被維護且開放原始碼的 Windows X-server 軟體，安裝完啟動後記得選勾選 `Disable access control`，該程式相關防火牆設定都先打開，若機器長期暴露在公共網路 (有外網ip)，可自行研究 Xorg 的 xauth 怎麼設定，這邊先不細講。
 
 當然 WSL 要自行安裝 `gv` 這個套件，也要檢查你的發行版有沒有順便幫你裝 `ghostscript` 等套件
 
