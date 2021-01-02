@@ -1,11 +1,14 @@
 ---
 title: 靈魂急轉彎(Soul)觀後簡短感
 tags:
-- anime
-- disney
+  - anime
+  - disney
+date: 2021-01-03 01:41:04
 ---
 
-先講結論，22 我婆 (如果如字幕所述有性別之分?
+
+先講結論，22 我婆 (如果如字幕的她沒打錯的話????
+![](https://i.imgur.com/qpD4kAQ.png)
 
 以下可能劇透
 
