@@ -67,4 +67,4 @@ https://lists.centos.org/pipermail/centos-announce/2020-December/048208.html
 
 ## 參考資源
 
-[^1] https://access.redhat.com/articles/rhel8-abi-compatibility#Scope
+[^1]: https://access.redhat.com/articles/rhel8-abi-compatibility#Scope

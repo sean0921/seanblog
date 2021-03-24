@@ -102,6 +102,39 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: hexo-theme-next
 
+markdown:
+  markdown: 'default'
+  render:
+    html: true       #顯示html語法內容
+    xhtmlOut: false  #Parser (not) produces fully XHTML compliant code
+    breaks: true    #覺得蠻有用的，在原本撰寫markdown時只要有break line符號，就會在最後產生結果時幫你加入<br>換行
+    linkify: true   #只要有像網址的詞出現，就會在結果顯示時幫你把網址轉換成超連結
+    typographer: true   #圖像符號的顯示  例如©
+    quotes: '“”‘’'
+
+    plugins:    
+        - markdown-it-footnote   #註腳
+        - markdown-it-abbr    #可以做標註縮寫
+        - markdown-it-abbr   
+        - markdown-it-checkbox   
+        - markdown-it-emoji    #表情符號
+        - markdown-it-footnote
+        - markdown-it-ins      
+        - markdown-it-sub      
+        - markdown-it-sup
+    
+    anchors:
+    # Minimum level for ID creation. (Ex. h2 to h6)
+    level: 2
+    # A suffix that is prepended to the number given if the ID is repeated.
+    collisionSuffix: 'v'           
+    # If `true`, creates an anchor tag with a permalink besides the heading.
+    permalink: false              
+    # Class used for the permalink anchor tag.
+    permalinkClass: header-anchor 
+    # The symbol used to make the permalink
+    permalinkSymbol: ¶    #如果permalink為true， next文章目錄的章節前面都會加一個這樣的符號
+
 # Atom Feeds
 ## Try atom feeds by suggestions of issue #1
 feed:
