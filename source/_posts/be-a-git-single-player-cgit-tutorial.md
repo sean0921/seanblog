@@ -9,7 +9,7 @@ tags:
 date: 2021-03-27 01:47:27
 ---
 
-不想被單一特定程式碼平臺綁住你個人開發的程式碼，又想將你的心血整合起來供其他人參考嗎? 又或是擔心在 GitHub 上一堆「為了學術研究用途」的專案哪一天被和諧掉嗎? 如果沒有多人合作、CI/CD 需求、直接從網頁登入存取的需求，`cgit` 這個由 C 語言開發的網頁 cgi 服務，簡潔又快速的功能或許可以輕易滿足你的需求喔！
+不想被單一特定程式碼平臺綁住你個人開發的程式碼又想將你的心血整合起來供其他人參考嗎? 又或是擔心在 GitHub 上一堆為了學術研究用途的專案哪一天被和諧掉嗎? 如果沒有多人合作 CI/CD 需求直接從網頁登入存取的需求 `cgit` 這個由 C 語言開發的網頁 cgi 服務, 簡潔又快速的功能或許可以輕易滿足你的需求喔
 
 <!--more-->
 
@@ -19,7 +19,7 @@ date: 2021-03-27 01:47:27
 
 #### 運行環境
 
-任何 Unix-like 環境( Linux/FreeBSD/Cygwin/WSL )皆可，本文章以 *Debian GNU/Linux Buster(10)* 為例進行解說，相關過程、指令也相容 *Ubuntu Linux*, *Debian GNU/Linux Bullseye(11)*
+任何 Unix-like 環境 ( Linux/FreeBSD/Cygwin/WSL ) 皆可, 本文章以 *Debian GNU/Linux Buster(10)* 為例進行解說, 相關過程指令也相容 *Ubuntu Linux*, *Debian GNU/Linux Bullseye(11)*
 
 #### 安裝相關套件
 
@@ -49,13 +49,13 @@ server {
                 # First attempt to serve request as file, then
                 # as directory, then fall back to displaying a 404.
                 #try_files $uri $uri/ =404;
-                try_files $uri @cgit;
+                try_files $uri @cgit;    ## 這邊要使用 cgit 的 CGI 程式來解譯路徑
         }
 
 
         location /cgit-css/ {
                 rewrite ^/cgit-css(/.*)$ $1 break;
-                root /usr/share/cgit;
+                root /usr/share/cgit;    ## cgit 的 CSS 排版格式與相關預設圖片需要它
         }
 
 
@@ -81,8 +81,7 @@ server {
 # cgit config
 # see cgitrc(5) for details
 
-#css=/cgit-css/cgit.css
-#logo=/cgit-css/cgit.png
+## 這邊要搭配 nginx 設定的路徑來設定相關資源位置
 css=/cgit-css/cgit.css
 logo=/cgit-css/cgit.png
 favicon=/cgit-css/favicon.ico
@@ -124,6 +123,9 @@ enable-index-links=1
 root-readme=/my/gitrepos/git/readme.md
 #root-readme=/my/gitrepos/git/readme.html
 
+## 這邊可以幫你設定 cgit 掃描的 repo 所在資料夾
+scan-path=/srv/gitrepos/git/
+
 ##
 ## List of common mimetypes
 ##
@@ -139,6 +141,7 @@ mimetype.svg=image/svg+xml
 ##
 ## Search for these files in the root of the default branch of repositories
 ## for coming up with the about page:
+## 這邊如果沒安裝 python3-markdown 等套件的話README 仍然無法顯示 markdown 格式的喔
 ##
 
 readme=:README.md
@@ -171,18 +174,19 @@ readme=:INSTALL
 readme=:install
 
 ###Catogory
-#scan-path=/srv/gitrepos/git/
-
-section=a: BBS Projects
-scan-path=/my/gitrepos/git/category/bbs
-section=b: My Distro-Hacking Records
-scan-path=/my/gitrepos/git/category/distro
-section=c: My Personal Toys
-scan-path=/my/gitrepos/git/category/mytoy
+#scan-path=/my/gitrepos/git/
+## 這邊可以另外幫自己分類 git 專案
+#
+#section=a: BBS Projects
+#scan-path=/my/gitrepos/git/category/bbs
+#section=b: My Distro-Hacking Records
+#scan-path=/my/gitrepos/git/category/distro
+#section=c: My Personal Toys
+#scan-path=/my/gitrepos/git/category/mytoy
 ```
 
 
-### 3. 啟用服務、啟動服務
+### 3. 啟用服務與啟動服務
 
 ```bash=
 nginx -t ## 檢查 nginx config 檔格式是否正確
@@ -203,13 +207,13 @@ chsh -s /usr/bin/git-shell git
 sudo -su git cat <place_of_your_ssh_public_key> >> <git_account_home>/.ssh/authorized_keys
 ```
 
-### 5. 噹噹！開始使用你的服務
+### 5. 噹噹! 開始使用你的服務
 
-輸入網址，享用你的自架 git 服務: `http://<your_cgit_ip_or_domain>`
+輸入網址, 享用你的自架 git 服務: `http://<your_cgit_ip_or_domain>`
 
-若服務對外公開的話，建議還是設定一下 TLS 安全連線比較保險一些
+若服務對外公開的話, 建議還是設定一下 TLS 安全連線比較保險一些
 
-詳細 TLS 憑證設定與 Let's Encrypt 憑證申請可以參考以下資源進行調整:
+詳細 TLS 憑證設定與 Let's Encrypt 憑證申請, 可以參考以下資源進行調整:
 - https://wiki.gslin.org/wiki/Let%27s_Encrypt
 - https://ssl-config.mozilla.org/
 
