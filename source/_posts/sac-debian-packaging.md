@@ -1,6 +1,10 @@
 ---
 title: 在 Debian/Ubuntu 等 Linux 發行版下簡易打包軟體 – 以 SAC 為例
-tags: 'seismology, linux, packaging, sysadmin'
+tags:
+- seismology
+- linux
+- packaging
+- sysadmin
 date: 2021-06-06 00:00:00
 ---
 
