@@ -1,7 +1,7 @@
 ---
 title: sac_debian_packaging
 tags: 'seismology, linux, packaging, sysadmin'
-date: 2020-06-28 00:00:00
+date: 2021-06-06 00:00:00
 ---
 
 
