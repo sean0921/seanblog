@@ -1,11 +1,12 @@
 ---
-title: sac_debian_packaging
+title: 在 Debian/Ubuntu 等 Linux 發行版下簡易打包軟體 – 以 SAC 為例
 tags: 'seismology, linux, packaging, sysadmin'
 date: 2021-06-06 00:00:00
 ---
 
+Linux 發行版基本上就是一個「拼裝車」，組合各個不同來源的專案原始碼組合成一個有實際用途的「[通用作業系統]。我們將以地震學軟體 SAC 為例，說明如何利用「套件打包」的機制，藉由單一專案的軟體打包管理程式，使得發行版內軟體更能有秩序地被管理。
 
-# 在 Debian/Ubuntu 等 Linux 發行版下簡易打包軟體 -- 以 SAC 為例
+<!--more-->
 
 ## 套件打包的目的
 
