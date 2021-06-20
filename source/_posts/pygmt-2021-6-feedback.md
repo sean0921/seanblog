@@ -93,16 +93,18 @@ fig.savefig('archi_sea_pygmt.png')
 2. 即使某些 GMT 模組能被 PyGMT 支援，但能使用的長選項參數、能夠讀取的資料格式仍相對受限
 3. 開發/教學文件與範本數量仍極度缺乏，但此部分至少可以對照 GMT 指令版本的文件
 
-第 1,2 點的部分，以目前釋出的 0.3.1 版為例，該版本不支援、支援有限但常被使用的 GMT 指令模組包含了 [`project`](https://docs.generic-mapping-tools.org/6.2/project.html) (對平面直線附近包含深度資訊的座標點進行剖面繪製)，[`pssac`](https://docs.generic-mapping-tools.org/6.2/supplements/seis/pssac.html) (讀取 SAC 檔並繪製地震波形)， [`histogram`](https://docs.generic-mapping-tools.org/6.2/histogram.html) (繪製長條圖，目前已於 [git](https://zh.wikipedia.org/zh-tw/Git) `master` 開發中版本開始支援)，[`meca`](https://docs.generic-mapping-tools.org/6.2/supplements/seis/meca.html) (舊稱 `psmeca`，已實作，但不支援震源機制球置放在震央以外的位置)...等
+第 1,2 點的部分，以目前釋出的 0.3.1 版為例，該版本不支援、支援有限但常被使用的 GMT 指令模組包含了 [`project`](https://docs.generic-mapping-tools.org/6.2/project.html) (對平面直線附近包含深度資訊的座標點進行剖面繪製)，[`pssac`](https://docs.generic-mapping-tools.org/6.2/supplements/seis/pssac.html) (讀取 SAC 檔並繪製地震波形)， [`histogram`](https://docs.generic-mapping-tools.org/6.2/histogram.html) (繪製長條圖，目前已於 [git](https://zh.wikipedia.org/zh-tw/Git) `master` 開發中版本開始支援)，[`meca`](https://docs.generic-mapping-tools.org/6.2/supplements/seis/meca.html) (舊稱 `psmeca`，已實作，但不支援震源機制球置放在震央以外的位置)...等。
+
+即使 `pssac` 和 `histogram` 功能可分別用 `obspy` 和 `matplotlib` 替代，但使用介面上的差異，進而造成腳本轉換所要花費的時間，卻遠大於從 GMT 5,6 轉換到其他 PyGMT 支援的模組所要付出的。
 
 另外在傳統 GMT 繪圖的過程中，我們需要 `-V` 選項來讓程式輸出更多明顯的提示訊息以利除錯校正，在 PyGMT 中開發者嘗試使用 `verbose=True` 使其參數更容易被理解，但大量使用此選項後便會發現許多函式仍然只能使用 `V=True` 來應付其 alias 無法實作的問題。
 
-理論上來說上面所遇到的問題雖然會徒然花費使用者時間去想辦法應付這些問題，包含並不限於使用替代套件(`obspy` 簡單繪製地震波形，`matplotlib` 畫長條圖)、透過 `pygmt.clib.Session.call_module()` 暴力呼叫指令、回去使用 `subprocess`...等，其中用到 `subprocess` 來應付模組 `project` 不被 PyGMT 支援的問題時，已經開始思考當初使用這個套件的理由了。
+上面所遇到的問題會徒然花費使用者時間去想辦法應付這些問題，進而大幅降低使用者嘗試的意願。包含並不限於使用替代套件、透過 `pygmt.clib.Session.call_module()` 呼叫 API、回去使用 `subprocess`...等，其中必須用到 `subprocess()` 及其 pipe 功能來應付模組 `project` 不被 PyGMT 支援的問題時，已經開始思考當初使用這個套件的理由了。
 
 
 ## PyGMT 還有搞頭嗎?
 
-身為開源軟體的使用者、推廣者而言，自己仍然是希望這個專案的開發能夠繼續下去。畢竟上面實際使用該套件後遇到的問題，多偏向開發、使用者社群尚未完整地建立起來的因素，再加上一般使用者多偏向從現有/舊有腳本去修改來繪製研究成果以節省時間，這也成為了推廣新工具(PyGMT，GMT 6 語法)、給予回饋的巨大阻礙。然而新需求、新方法總會不斷地出現，停留在舊版程式與腳本也遲早會遇到無法被新平臺、新工具支援的問題。如果我們持續停留在消耗別人既有成果而對於回饋開源專案這件事情不甚重視的話，未來能從它身上滿足的需求也將持續受限，無法跨出新的一步。
+身為開源軟體的使用者、推廣者而言，仍然希望這個專案的開發能夠繼續下去。畢竟上面實際使用該套件後遇到的問題，多偏向開發、使用者社群尚未完整地建立起來的因素，再加上一般使用者多偏向從現有/舊有腳本去修改來繪製研究成果以節省時間，這也成為了推廣新工具(PyGMT，GMT 6 語法)、給予回饋的巨大阻礙。然而新需求、新方法總會不斷地出現，停留在舊版程式與腳本也遲早會遇到無法被新平臺、新工具支援的問題。如果我們持續停留在消耗別人既有成果而對於回饋開源專案這件事情不甚重視的話，未來能從它身上滿足的需求也將持續受限，無法跨出新的一步。
 
 其他能做的事情，或許可以列舉：
 - 整理以上支援受限的 module 資訊，包含其必要性 (是否優於替代方案)，回報給開發者社群。
