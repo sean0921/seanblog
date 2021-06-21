@@ -1,8 +1,9 @@
 ---
 title: 'PyGMT, 在 Python 製圖領域推廣 GMT 的利器? 我 ok, 你先用?'
 tags:
+  - genericmappingtools
   - geophysics
-  - science
+  - earthscience
   - mapping
   - python
   - freesoftware
